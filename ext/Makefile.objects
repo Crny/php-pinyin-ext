@@ -1,0 +1,10 @@
+pinyin.lo: /Users/Joy/pinyin/pinyin.cpp
+	$(LIBTOOL) --mode=compile $(CXX)  -I. -I/Users/Joy/pinyin $(COMMON_FLAGS) $(CXXFLAGS_CLEAN) $(EXTRA_CXXFLAGS)  -c /Users/Joy/pinyin/pinyin.cpp -o pinyin.lo 
+dictionary.lo: /Users/Joy/pinyin/dictionary.cpp
+	$(LIBTOOL) --mode=compile $(CXX)  -I. -I/Users/Joy/pinyin $(COMMON_FLAGS) $(CXXFLAGS_CLEAN) $(EXTRA_CXXFLAGS)  -c /Users/Joy/pinyin/dictionary.cpp -o dictionary.lo 
+$(phplibdir)/pinyin.la: ./pinyin.la
+	$(LIBTOOL) --mode=install cp ./pinyin.la $(phplibdir)
+
+./pinyin.la: $(shared_objects_pinyin) $(PINYIN_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_pinyin) $(PINYIN_SHARED_LIBADD)
+
