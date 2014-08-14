@@ -1,3 +1,5 @@
+export CXXFLAGS="-O2 -std=c++0x"
+
 dnl $Id$
 dnl config.m4 for extension pinyin
 

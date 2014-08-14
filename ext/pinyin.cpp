@@ -78,7 +78,7 @@ ZEND_GET_MODULE(pinyin)
 /* {{{ PHP_INI
  */
 PHP_INI_BEGIN()
-    STD_PHP_INI_ENTRY("pinyin.dict_file", "", PHP_INI_ALL, OnUpdateString, dict_file, zend_pinyin_globals, pinyin_globals)
+    STD_PHP_INI_ENTRY((char*)"pinyin.dict_file", (char*)"", PHP_INI_ALL, OnUpdateString, dict_file, zend_pinyin_globals, pinyin_globals)
 PHP_INI_END()
 /* }}} */
 
@@ -168,7 +168,7 @@ PHP_FUNCTION(pinyin)
 	char *strg;
 	int splitword_len;
 	UINT load_count = 0;
-    const char *dict_file = INI_STR("pinyin.dict_file");
+    const char *dict_file = INI_STR((char*)"pinyin.dict_file");
     
     if (!strlen(dict_file))
     {
