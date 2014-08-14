@@ -11,7 +11,11 @@ cd php-pinyin-ext/ext
 phpize
 ./configure
 make && make install
+
+## add follow line to php.ini
+extension=pinyin.so
 ```
+
 #### check
 
 ```shell
