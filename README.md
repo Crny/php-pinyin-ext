@@ -1,7 +1,7 @@
 php-pinyin-ext
 ==============
 
-Chinese to pinyin extension for PHP
+PHP extension for convert Chinese characters to Pinyin
 
 # install
 
